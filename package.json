@@ -1,0 +1,16 @@
+{
+  "name": "aws-lambda-nodejs-template",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A minimal AWS Lambda template for Node.js 24",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test",
+    "invoke": "sam local invoke HelloFunction --event events/hello.json",
+    "validate": "sam validate --lint",
+    "deploy": "sam build && sam deploy --guided"
+  }
+}

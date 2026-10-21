@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Minimal Node.js 24 AWS Lambda function
+
+Resources:
+  HelloFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: src/handlers/hello.handler
+      Runtime: nodejs24.x
+      Architectures:
+        - arm64
+      MemorySize: 128
+      Timeout: 3
+      Environment:
+        Variables:
+          SERVICE_NAME: lambda-template
+      Events:
+        Api:
+          Type: HttpApi
+          Properties:
+            Path: /hello
+            Method: GET
+
+Outputs:
+  ApiUrl:
+    Description: URL of the HTTP API endpoint
+    Value: !Sub 'https://${ServerlessHttpApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}/hello'

@@ -1,0 +1,15 @@
+{
+  "version": "2.0",
+  "routeKey": "GET /hello",
+  "rawPath": "/hello",
+  "rawQueryString": "name=Lambda",
+  "queryStringParameters": {
+    "name": "Lambda"
+  },
+  "requestContext": {
+    "http": {
+      "method": "GET",
+      "path": "/hello"
+    }
+  }
+}
